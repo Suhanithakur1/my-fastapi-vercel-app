@@ -18,7 +18,7 @@ app.add_middleware(
 with open("marks.json", "r") as f:
     marks_data = json.load(f)
 
-@app.get("/api")
+@app.get("/")
 async def get_marks(request: Request):
     names = request.query_params.getlist("name")
     result = [marks_data.get(name, None) for name in names]
